@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/montserrat.ttf');
+}
+
+body, input, button {
+    font-family: 'Montserrat';
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+}
+
+input[type='radio'] {
+    margin: 0;
+}
+
+.invalid-text-input {
+    border-color: red;
+}
+
+#output-container {
+    gap: 8px;
+    padding-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    width: 96px;
+    height: 32px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 2px;
+}
+
+button:hover {
+    box-shadow: 0px 0px 2px black;
+    transition: box-shadow .1s;
+}
+
+.output-block {
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 2px;
+    display: inline-flex; /* to autosize width based on children */
+    box-shadow: 0px 0px 2px black;
+}
+
+.output-cell {
+    width: 32px;
+    line-height: 32px;
+    text-align: center;
+}
