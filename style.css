@@ -1,10 +1,52 @@
 @font-face {
     font-family: 'Montserrat';
+    font-weight: 400;
     src: url('./fonts/montserrat.ttf');
+}
+
+:root {
+    --main-color: rgb(70, 45, 180);
+    --border-color-light: rgb(204, 204, 204);
+    --widget-border-radius: 4px;
+}
+
+body {
+    margin: 0px;
 }
 
 body, input, button {
     font-family: 'Montserrat';
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#navigation-bar {
+    display: flex;
+    align-items: center;
+    height: 64px;
+    gap: 32px;
+    padding-left: 24px;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+#title {
+    font-size: 2em;
+}
+
+.navigation-button {
+    background-color: white;
+    border: 0;
+}
+
+.navigation-button:hover {
+    color: var(--main-color);
+}
+
+.selected-view {
+    color: var(--main-color);
 }
 
 #controls {
@@ -12,14 +54,26 @@ body, input, button {
     flex-direction: column;
     gap: 8px;
     align-items: center;
+    padding-top: 32px;
 }
 
 input[type='radio'] {
     margin: 0;
+    accent-color: var(--main-color);
 }
 
-.invalid-text-input {
-    border-color: red;
+.action-button {
+    width: 96px;
+    height: 32px;
+    border: 0;
+    border-radius: var(--widget-border-radius);
+    background-color: var(--main-color);
+    color: white;
+}
+
+.action-button:hover {
+    box-shadow: 0px 0px 2px black;
+    transition: box-shadow .1s;
 }
 
 #output-container {
@@ -30,25 +84,12 @@ input[type='radio'] {
     align-items: center;
 }
 
-button {
-    width: 96px;
-    height: 32px;
-    cursor: pointer;
-    border: 0;
-    border-radius: 2px;
-}
-
-button:hover {
-    box-shadow: 0px 0px 2px black;
-    transition: box-shadow .1s;
-}
-
 .output-block {
     padding-left: 8px;
     padding-right: 8px;
-    border-radius: 2px;
+    border-radius: var(--widget-border-radius);
     display: inline-flex; /* to autosize width based on children */
-    box-shadow: 0px 0px 2px black;
+    border: 1px solid var(--border-color-light);
 }
 
 .output-cell {

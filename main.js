@@ -8,6 +8,25 @@ goButton.addEventListener("click", go);
 let clearButton = document.getElementById("clear");
 clearButton.addEventListener("click", clear);
 
+let navButtons = document.getElementsByClassName("navigation-button");
+
+let navButtonsArray = Array.from(navButtons);
+
+navButtonsArray.forEach(nb => {
+    nb.addEventListener("click", () => {
+        switchView(nb.dataset.view);
+    });
+
+    window.addEventListener("switchview", highlightNavButton.bind(nb));
+})
+
+function highlightNavButton() {
+    if (this.dataset.view === currentView) {
+        this.classList.add("selected-view");
+    }
+    else this.classList.remove("selected-view");
+}
+
 switchView("keys");
 
 function go() {
@@ -15,7 +34,7 @@ function go() {
 
     switch (currentView) {
         case "keys": output = prepareKeys(); break;
-        case "progression": output = prepareProgression(); break;
+        case "progressions": output = prepareProgression(); break;
     }
 
     displayOutput(output);
@@ -34,6 +53,7 @@ function clear() {
     document.getElementById("output-container").innerHTML = "";
 }
 
+// TODO: fix this
 function alertOnInvalidInput() {
     alert("Invalid user input.");
 }
