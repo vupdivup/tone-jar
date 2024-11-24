@@ -10,4 +10,7 @@ export async function switchView(view) {
     target.innerHTML = t;
 
     currentView = view;
+
+    let e = new Event("switchview");
+    window.dispatchEvent(e);
 }

@@ -3,16 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crochet</title>
+    <title>Tone Jar</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div id="navigation-bar">
+      <div id="title">Tone Jar</div>
+      <button class="navigation-button" data-view="keys">Keys</button>
+      <button class="navigation-button" data-view="progressions">Progressions</button>
+    </div>
     <div id="controls">
       <input type="text" id="n" name="n" value="4">
       <div id ="dynamic-controls"></div>
       <div id ="buttons">
-        <button id="go">Go</button>
-        <button id="clear">Clear</button>
+        <button id="go" class="action-button">Go</button>
+        <button id="clear" class="action-button">Clear</button>
       </div>
     </div>
     <div id="output-container"></div>
