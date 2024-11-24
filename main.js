@@ -12,6 +12,8 @@ let navButtons = document.getElementsByClassName("navigation-button");
 
 let navButtonsArray = Array.from(navButtons);
 
+addEventListener("keydown", e => handleHotkey(e));
+
 navButtonsArray.forEach(nb => {
     nb.addEventListener("click", () => {
         switchView(nb.dataset.view);
@@ -51,6 +53,20 @@ function displayOutput(output) {
 // clear outputs
 function clear() {
     document.getElementById("output-container").innerHTML = "";
+}
+
+// event handler for hotkey configuration
+function handleHotkey(e) {
+    switch (e.code) {
+        // G: go
+        case "KeyG":
+            go();
+            break;
+        // C: clear
+        case "KeyC":
+            clear();
+            break;
+    }
 }
 
 // TODO: fix this
