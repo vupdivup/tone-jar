@@ -39,8 +39,9 @@ button {
 }
 
 .nav-button {
-    background-color: white;
-    border: 0;
+    display: block;
+    text-decoration: none;
+    color: black;
 }
 
 .nav-button:hover {
@@ -68,7 +69,7 @@ button {
     align-items: center;
 }
 
-.dynamic-controls {
+.page -controls {
     display: flex;
     align-items: stretch;
     gap: 4px;    

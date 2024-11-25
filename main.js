@@ -37,6 +37,7 @@ function go() {
     }
     catch (error) {
         alertOnInvalidInput();
+        console.log(error)
         return;
     }
 
