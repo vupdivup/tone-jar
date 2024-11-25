@@ -1,7 +1,7 @@
 import { generateKeys, generateProgression } from "./scripts/generate.js";
 import { createOutputBlock } from "./scripts/output-block.js";
 
-let currentView;
+let currentView = document.body.dataset.view;
 
 configureListeners();
 
@@ -28,14 +28,12 @@ function go() {
                 let mode = document.querySelector("input[name='mode']:checked").value;
     
                 output = generateKeys(n, mode);
-
                 break;
     
             case "progressions":
                 let includeSeven = document.getElementById("include-seven").checked;
     
                 output = generateProgression(n, includeSeven);
-
                 break;
         }
     }
@@ -81,6 +79,9 @@ function alertOnInvalidInput() {
 
 // event handler for hotkey configuration
 function handleHotkey(e) {
+    // bypass if an input is focused
+    if (document.activeElement instanceof HTMLInputElement) return;
+
     switch (e.code) {
         // G: go
         case "KeyG":
