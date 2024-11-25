@@ -1,6 +1,6 @@
-import { sample } from "./sample.js";
+import { sample } from "/scripts/sample.js";
 
-let data = await fetch("./data/data.json").then(r => r.json());
+let data = await fetch("/data/data.json").then(r => r.json());
 
 let keys = data["keys"];
 let chords = data["chords"];

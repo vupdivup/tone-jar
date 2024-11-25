@@ -1,11 +1,9 @@
 import { generateKeys, generateProgression } from "./scripts/generate.js";
 import { createOutputBlock } from "./scripts/output-block.js";
 
-let currentView = document.body.dataset.view;
+let currentPage = document.body.dataset.page;
 
 configureListeners();
-
-await switchView("keys");
 
 // parse inputs and generate block
 function go() {
@@ -22,8 +20,8 @@ function go() {
     }
 
     try {
-        // parse parameter inputs and generate output based on current view
-        switch (currentView) {
+        // parse parameter inputs and generate output based on current page
+        switch (currentPage) {
             case "keys":
                 let mode = document.querySelector("input[name='mode']:checked").value;
     
@@ -39,6 +37,7 @@ function go() {
     }
     catch (error) {
         alertOnInvalidInput();
+        console.log(error)
         return;
     }
 
@@ -51,25 +50,6 @@ function go() {
 // clear outputs
 function clear() {
     document.getElementById("output-container").innerHTML = "";
-}
-
-// fetch unique controls of view and append them
-async function switchView(view) {
-    // get .html of dynamic controls
-    let viewFileName = `./views/${view}.html`;
-
-    let r = await fetch(viewFileName);
-    let t = await r.text();
-
-    // append
-    let target = document.getElementById("dynamic-controls-wrapper")
-    target.innerHTML = t;
-
-    currentView = view;
-
-    // dispatch view switch event
-    let e = new Event("viewswitch");
-    dispatchEvent(e);
 }
 
 // alert pop-up in case of invalid input
@@ -96,14 +76,6 @@ function handleHotkey(e) {
     }
 }
 
-// highlight or reset nav button based on current view
-function highlightNavButton() {
-    if (this.dataset.view === currentView) {
-        this.classList.add("selected-view");
-    }
-    else this.classList.remove("selected-view");
-}
-
 // startup function to add listeners for all events in use
 function configureListeners() {
     // go button click
@@ -113,21 +85,6 @@ function configureListeners() {
     // clear button click
     let clearButton = document.getElementById("clear");
     clearButton.addEventListener("click", clear);
-
-    // navigation button view switches
-    let navButtons = document.getElementsByClassName("navigation-button");
-
-    let navButtonsArray = Array.from(navButtons);
-
-    navButtonsArray.forEach(nb => {
-        // view switch on button click
-        nb.addEventListener("click", () => {
-            switchView(nb.dataset.view);
-        });
-        
-        // highlight and reset nav buttons on view switch
-        addEventListener("viewswitch", highlightNavButton.bind(nb));
-    })
 
     // hotkey events
     addEventListener("keydown", e => handleHotkey(e));
