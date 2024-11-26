@@ -1,0 +1,10 @@
+baseurl: "/tone-jar"
+domain: vupdivup.github.io
+url: https://vupdivup.github.io
+repository: vupdivup/tone-jar/
+source: ../
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
