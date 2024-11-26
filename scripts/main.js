@@ -1,5 +1,5 @@
-import { generateKeys, generateProgression } from "./scripts/generate.js";
-import { createOutputBlock } from "./scripts/output-block.js";
+import { generateKeys, generateProgression } from "./generate.js";
+import { createOutputBlock } from "./output-block.js";
 
 let currentPage = document.body.dataset.page;
 
