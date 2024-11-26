@@ -6,6 +6,8 @@
 
 :root {
     --main-color: rgb(158, 58, 68);
+    --button-hover-color: rgb(138, 43, 52);
+    --button-pressed-color:rgb(120, 31, 40); 
     --border-color-light: rgb(204, 204, 204);
     --widget-border-radius: 4px;
 }
@@ -45,7 +47,11 @@ button {
 }
 
 .nav-button:hover {
-    color: var(--main-color);
+    color: var(--button-hover-color);
+}
+
+.nav-button:active {
+    color: var(--button-pressed-color);
 }
 
 .nav-button-selected {
@@ -97,8 +103,11 @@ label {
 }
 
 .action-button:hover {
-    box-shadow: 0px 0px 2px black;
-    transition: box-shadow .1s;
+    background-color: var(--button-hover-color);
+}
+
+.action-button:active {
+    background-color: var(--button-pressed-color);
 }
 
 #output-container {

@@ -66,12 +66,10 @@ function handleHotkey(e) {
         // G: go
         case "KeyG":
             go();
-            document.getElementById("go").focus();
             break;
         // C: clear
         case "KeyC":
             clear();
-            document.getElementById("clear").focus();
             break;
     }
 }
