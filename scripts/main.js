@@ -62,6 +62,8 @@ function handleHotkey(e) {
     // bypass if an input is focused
     if (document.activeElement instanceof HTMLInputElement) return;
 
+    document.activeElement.blur();
+
     switch (e.code) {
         // G: go
         case "KeyG":
